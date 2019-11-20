@@ -2,20 +2,18 @@
 @section('content')
 
 
-    <div class="card-header" style="text-align: center;margin: 10px 300px 50px 300px">
+    <div class="card-header" style="text-align: center;margin: 10px 260px 50px 260px">
         <h2>Create Gallery</h2>
     </div>
 
 
-    <div class="card-body" style="margin: 10px 400px 10px 400px">
+    <div class="card-body" style="margin: 10px 260px 10px 260px">
         <form>
-
-            <div class="">
 
                 <div class="form-group">
                     <label for="image"> Feature Image</label>
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    <input type="file" name="image[]" class="form-control" id="file-1" multiple="" data-overwrite-initial="false" data-min-file-count="2">
+                    <input type="file" name="image[]" class="form-control" id="file-1" multiple data-overwrite-initial="false" data-min-file-count="1">{{--data-min-file-count="1" means atleast 1 file should upload.--}}
                     <p class="help-block">Image must be jpeg,png,jpg,gif,svg and max file size 2M, max files 8</p>
                 </div>
                 <div class="form-group ">
@@ -26,8 +24,6 @@
                         <option value="0">No</option>
                     </select>
                 </div>
-
-            </div>
 
 
         </form>
@@ -52,7 +48,7 @@
     <script>
     $('#file-1').fileinput({
     theme:'fa',
-    uploadUrl:"{{url('image-submit')}}",
+    uploadUrl:"{{url('gallery')}}",
     uploadExtraData:function(){
     return{
     _token:$("input[name='_token']").val()

@@ -22,7 +22,26 @@ class GalleryController extends Controller
 
     public function store(Request $request)
     {
-        //
+        /*dd($request->file('image'));*/
+        /*$imageName =$request->file->getClientOrginalName();
+        $request->file->move(public_path('galleryImages'),$imageName);*/
+
+        $images=array();
+        if($files=$request->file('image')){
+            foreach($files as $file){
+                $name=$file->getClientOriginalName();
+                $file->move('galleryImages',$name);
+                $images[]=$name;
+            }
+        }
+
+
+        Gallery::create([
+            'image'=>  implode("|",$images),
+        ]);
+
+
+        return response()->json(['uplodaded'=>'/galleryImages'.$name]);
     }
 
 
