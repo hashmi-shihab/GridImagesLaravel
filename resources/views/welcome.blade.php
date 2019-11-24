@@ -9,8 +9,10 @@
     <link href="{{asset('css/bootstrap-grid.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/bootstrap-reboot.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/fileinput.css')}}" rel="stylesheet">
-    <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
-    {{--<link href="{{asset('css/style.css')}}" rel="stylesheet">--}}
+    <link href="{{asset('font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link rel='stylesheet' href={{asset('unitegallery/css/unite-gallery.css')}}>
+
+
 </head>
 <body>
 
@@ -29,6 +31,8 @@
 <script src="{{asset('js/fileinput.js')}}"></script>
 <script src="{{asset('js/popper.min.js')}}"></script>
 <script src="{{asset('js/theme.js')}}"></script>
+<script src="{{asset('unitegallery/js/unitegallery.min.js')}}"></script>
+<script src="{{asset('unitegallery/themes/tiles/ug-theme-tiles.js')}}"></script>
 
 @yield('jsscript')
 

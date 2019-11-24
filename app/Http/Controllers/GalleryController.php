@@ -10,7 +10,10 @@ class GalleryController extends Controller
 
     public function index()
     {
-        return view('gallery.list');
+        $images = Gallery::all();
+//        dd($images);
+
+        return view('gallery.list',compact('images'));
     }
 
 
@@ -22,9 +25,6 @@ class GalleryController extends Controller
 
     public function store(Request $request)
     {
-        /*dd($request->file('image'));*/
-        /*$imageName =$request->file->getClientOrginalName();
-        $request->file->move(public_path('galleryImages'),$imageName);*/
 
         $images=array();
         if($files=$request->file('image')){
